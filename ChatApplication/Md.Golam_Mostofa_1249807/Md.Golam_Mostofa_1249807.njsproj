@@ -1,0 +1,100 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Name>Md.Golam_Mostofa_1249807</Name>
+    <RootNamespace>Md.Golam_Mostofa_1249807</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>e878165c-2cda-44f7-9091-35c73b097fe3</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>app.js</StartupFile>
+    <StartWebBrowser>False</StartWebBrowser>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <StartWebBrowser>false</StartWebBrowser>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="app.js" />
+    <Compile Include="www\scripts\bootstrap.bundle.js" />
+    <Compile Include="www\scripts\bootstrap.bundle.min.js" />
+    <Compile Include="www\scripts\bootstrap.js" />
+    <Compile Include="www\scripts\bootstrap.min.js" />
+    <Compile Include="www\scripts\core.js" />
+    <Compile Include="www\scripts\jquery-1.10.js" />
+    <Compile Include="www\scripts\jquery.js" />
+    <Compile Include="www\scripts\jquery.min.js" />
+    <Compile Include="www\scripts\jquery.slim.js" />
+    <Compile Include="www\scripts\jquery.slim.min.js" />
+    <Compile Include="www\scripts\socket.io.js" />
+    <Content Include="package-lock.json" />
+    <Content Include="package.json" />
+    <Content Include="README.md" />
+    <Content Include="www\chatapp.html" />
+    <Content Include="www\draganddrop.html" />
+    <Content Include="www\index.html" />
+    <Content Include="www\scripts\bootstrap.bundle.js.map" />
+    <Content Include="www\scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="www\scripts\bootstrap.js.map" />
+    <Content Include="www\scripts\bootstrap.min.js.map" />
+    <Content Include="www\scripts\jquery.min.map" />
+    <Content Include="www\scripts\jquery.slim.min.map" />
+    <Content Include="www\styles\bootstrap-grid.css" />
+    <Content Include="www\styles\bootstrap-grid.css.map" />
+    <Content Include="www\styles\bootstrap-grid.min.css" />
+    <Content Include="www\styles\bootstrap-grid.min.css.map" />
+    <Content Include="www\styles\bootstrap-reboot.css" />
+    <Content Include="www\styles\bootstrap-reboot.css.map" />
+    <Content Include="www\styles\bootstrap-reboot.min.css" />
+    <Content Include="www\styles\bootstrap-reboot.min.css.map" />
+    <Content Include="www\styles\bootstrap.css" />
+    <Content Include="www\styles\bootstrap.css.map" />
+    <Content Include="www\styles\bootstrap.min.css" />
+    <Content Include="www\styles\bootstrap.min.css.map" />
+    <Content Include="www\styles\css\font-awesome.css" />
+    <Content Include="www\styles\css\font-awesome.css.map" />
+    <Content Include="www\styles\css\font-awesome.min.css" />
+    <Content Include="www\styles\fonts\fontawesome-webfont.eot" />
+    <Content Include="www\styles\fonts\fontawesome-webfont.svg" />
+    <Content Include="www\styles\fonts\fontawesome-webfont.ttf" />
+    <Content Include="www\styles\fonts\fontawesome-webfont.woff" />
+    <Content Include="www\styles\fonts\fontawesome-webfont.woff2" />
+    <Content Include="www\styles\fonts\FontAwesome.otf" />
+    <Content Include="www\uploads\02.Tumi_Achho_Tai-Kazi_Shuvo_And_Puja_FusionBD.Com.mp3" />
+    <Content Include="www\uploads\10OCL.pdf" />
+    <Content Include="www\uploads\DSC_0017.JPG" />
+    <Content Include="www\uploads\esad.sql" />
+    <Content Include="www\uploads\iconfinder_Dump_truck_3605312.png" />
+    <Content Include="www\uploads\iconfinder_technology-machine-electronic-device-20_4026440.png" />
+    <Content Include="www\uploads\iconfinder_transport-icons-07_331652.png" />
+    <Content Include="www\uploads\iconfinder_transport-icons-09_331654.png" />
+    <Content Include="www\uploads\KeyVS2K17.txt" />
+    <Content Include="www\uploads\Mock_40.quiz" />
+    <Content Include="www\uploads\two division short technique.html" />
+    <Content Include="www\uploads\xtreme.mdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="www\" />
+    <Folder Include="www\scripts\" />
+    <Folder Include="www\styles\" />
+    <Folder Include="www\styles\css\" />
+    <Folder Include="www\styles\fonts\" />
+    <Folder Include="www\uploads\" />
+  </ItemGroup>
+  <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+</Project>

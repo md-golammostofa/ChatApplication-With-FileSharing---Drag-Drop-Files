@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Drag and Drop</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: .90em;
+        }
+
+        .container {
+		    position:absolute;
+            width:100%;
+			height:100%;
+            padding: 0;
+            margin: 0 auto;
+			background-color:#E0FFFF;
+        }
+
+        #main {
+            width: 980px;
+            padding: 0;
+            margin: 0 auto;
+        }
+
+        #left {
+            width: 200px;
+            float: left;
+            padding: 0;
+            margin: 0;
+        }
+
+        #right {
+            width: 770px;
+            float: left;
+            padding: 0;
+            margin: 0;
+            padding-left: 8px;
+            border-left: dotted 1px black;
+        }
+
+        #dropzone {
+            margin: 0;
+            padding: 5px;
+            border: dotted 5px black;
+            width: 756px;
+            min-height: 200px;
+            font-size: 36px;
+            text-align: center;
+        }
+
+        .user {
+            display: inline-block;
+            width: 120px;
+            font-weight: 700;
+        }
+    </style>
+    <script src="scripts/socket.io.js"></script>
+    <script src="scripts/jquery-1.10.js"></script>
+    <script>
+        var socket;
+        $(document).ready(() => {
+            jQuery.event.props.push('dataTransfer');
+            $("#connect").click(() => {
+                socket = io.connect("http://localhost:6363");
+                socket.on("connect", () => {
+                    document.getElementById("panel").style.display = "none";
+                    document.getElementById("main").style.display = "block";
+                    socket.emit("adduser", document.getElementById("username").value);
+                    socket.emit("list", null);
+                });
+
+
+                socket.on("fileuploaded", (data) => {
+                    console.log(data);
+                    var ul = document.getElementById("files");
+                    ul.innerHTML += `<li>${data.name} - <a href='${data.path}'>download</a></li>`;
+
+                });
+
+                socket.on("updateusers", (names) => {
+                    var ul = document.getElementById("users");
+                    ul.innerHTML = "";
+                    for (var p in names) {
+                        ul.innerHTML += `<li>${p}</li>`;
+                    }
+                });
+                socket.on("list", (files) => {
+                    var ul = document.getElementById("files");
+                    for (var i = 0; i < files.length; i++) {
+                        ul.innerHTML += `<li>${files[i].name} - <a href='${files[i].path}'>download</a></li>`;
+                    }
+                });
+                socket.disconnect = () => {
+
+                };
+                $("#dropzone").on('dragenter', (evt) => {
+                    evt.preventDefault();
+                });
+                $("#dropzone").on('dragover', (evt) => {
+                    evt.preventDefault();
+                });
+                $("#dropzone").on('drop', (evt) => {
+                    evt.preventDefault();
+                    var files = evt.dataTransfer.files
+                    for (var x = 0; x < evt.dataTransfer.files.length; x++) {
+                        var n = evt.dataTransfer.files[x].name;
+                       
+                        var fr = new FileReader();
+                      
+                        fr.addEventListener("loadend", function () {
+                            socket.emit("uploadfile", {
+                                fileData: fr.result, name: n
+                            });
+                        });
+
+                        // load the file into an array buffer
+                        fr.readAsArrayBuffer(evt.dataTransfer.files[x]);
+                    }
+                });
+            });
+        });
+       
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Drag And Drop</h1>
+        </header>
+        <div id="panel">
+            <input type="text" id="username" placeholder="username" /><button id="connect">Connect</button>
+
+        </div>
+        <div id="main" style="display:none;">
+            <div id="left">
+                <h3>Users</h3>
+                <ul id="users"></ul>
+            </div>
+            <div id="right">
+                <h3>File list in the server</h3>
+                <ul id="files"></ul>
+               
+                <div id="dropzone">
+                    Drop files here
+                </div>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <footer>
+  <p>Posted by: Golam Mostofa</p>
+  <p>Contact information: <a href="https://www.gmail.com">
+  mmgk555@gmail.com</a>.</p>
+</footer> 
+    </div>
+</body>
+</html>
